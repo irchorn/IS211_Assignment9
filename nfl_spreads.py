@@ -11,34 +11,32 @@ if __name__ == "__main__":
     r = requests.get('http://www.footballlocks.com/nfl_point_spreads.shtml')
     print(r.text[0:500])
 
-from bs4 import BeautifulSoup
-soup = BeautifulSoup(r.text, 'html.parser')
-print(soup.prettify())
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(r.text, 'html.parser')
+    print(soup.prettify())
 
-dates = soup.find_all('span', title ='Date and Time of Game.')
-for date in dates:
-  print(date)
+    dates = soup.find_all('span', title ='Date and Time of Game.')
+    for date in dates:
+        print(date)
 
-results = soup.find_all('tr')
-for tr in results:
-    print(tr)
+    results = soup.find_all('tr')
+    for tr in results:
+        print(tr)
 
-week_17 = soup.find_all('tr')
-for tr in week_17:
-    game = tr.contents
-    
-    print(game)
+    week_17 = soup.find_all('tr')
+    for tr in week_17:
+        game = tr.contents
+        print(game)
 
-import csv
-file = csv.writer(open("NFL_point_spreads.csv", "w"))
-file.writerow(["Date;Time", "Favorite", "Underdog"]) 
+    import csv
+    file = csv.writer(open("NFL_point_spreads.csv", "w"))
+    file.writerow(["Date;Time", "Favorite", "Underdog"]) 
 
-week_17 = soup.find_all('tr')
-for tr in week_17:
-    game = tr.contents
-    
-    print(game)
-    file.writerow(game)
+    week_17 = soup.find_all('tr')
+    for tr in week_17:
+        game = tr.contents
+        print(game)
+        file.writerow(game)
 
 
     
