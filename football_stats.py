@@ -67,7 +67,7 @@ print(score)
 
 
 file = csv.writer(open("NFL_2020.csv", "w"))
-file.writerow(["Names", "TD") 
+file.writerow(["Names", "TD"]) 
 
 top_players = soup.find_all('tr')[1:21]
 for player in top_players:
