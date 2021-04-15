@@ -4,8 +4,9 @@
 # In[2]:
 
 
-from bs4 import BeautifulSoup
-import csv
+if __name__ == "__main__":
+    from bs4 import BeautifulSoup
+    import csv
 
 soup = BeautifulSoup (open("2020_NFL.htm"), features="lxml")
 print(soup.prettify())
@@ -80,8 +81,8 @@ for player in top_players:
 # In[11]:
 
 
-if __name__ == "__main__":
-    pass
+
+    
 
 
 # In[ ]:
